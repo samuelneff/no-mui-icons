@@ -2,8 +2,23 @@
   "name": "no-mui-icons",
   "version": "1.0.0",
   "description": "Material UI Icons repackaged without MUI dependencies",
+  "workspaces": [
+    "packages/*"
+  ],
   "main": "index.js",
+  "peerDependencies": {
+    "react": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.17.1",
+    "@types/node": "^20.12.11",
+    "change-case": "^5.4.4",
+    "lodash": "^4.17.21",
+    "to-words": "^4.0.1",
+    "ts-node": "^10.9.2"
+  },
   "scripts": {
+    "build": "ts-node packages/buildtools/index",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
