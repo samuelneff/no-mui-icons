@@ -1,0 +1,24 @@
+{
+  "name": "no-mui-icons",
+  "version": "1.0.0",
+  "description": "Material UI Icons repackaged without MUI dependencies",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samuelneff/no-mui-icons.git"
+  },
+  "keywords": [
+    "MaterialUI",
+    "mui",
+    "icons"
+  ],
+  "author": "Samuel Neff <sam@serndesign.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/samuelneff/no-mui-icons/issues"
+  },
+  "homepage": "https://github.com/samuelneff/no-mui-icons#readme"
+}
