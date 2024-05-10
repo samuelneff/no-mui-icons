@@ -1,5 +1,4 @@
-import { camelCase, pascalCase } from "change-case";
-import { identity } from 'lodash';
+import { identity, kebabCase } from 'lodash';
 import * as fs from 'fs/promises';
 import * as path from 'path';
 import { ToWords } from 'to-words';
@@ -27,6 +26,7 @@ export interface PackageInfo {
   packageName: string;
   packageDir: string;
   filenameSuffix: string;
+  moduleName: string;
   iconStyle: IconStyle;
 }
 
@@ -79,13 +79,14 @@ export const packageInfos: PackageInfo[] = [
   partialPackageInfo => (
     {
       ...partialPackageInfo,
-      packageDir: path.join(packagesDir, partialPackageInfo.packageName)
+      packageDir: path.join(packagesDir, partialPackageInfo.packageName),
+      moduleName: kebabCase(partialPackageInfo.iconStyle),
     }
   )
 );
 
 export const filenamePartsPattern = new RegExp(
-  `(.+)(?:${ packageInfos.map(i => i.filenameSuffix).filter(identity).join('|') })?${ svgFinalSuffix }`
+  `(.+?)(?:${ packageInfos.map(i => i.filenameSuffix).filter(identity).join('|') })?${ svgFinalSuffix }`
 );
 
 function packageInfoFromFilename(filename: string) {
@@ -106,7 +107,7 @@ export async function iconInfos() {
   if (iconInfosCache) {
     return iconInfosCache;
   }
-  const mismatchFilenames = [];
+  const mismatchFilenames = [] as string[];
 
   const filenames = await fs.readdir(svgDir);
 
@@ -115,20 +116,16 @@ export async function iconInfos() {
       async (filename: string) => {
 
         const packageInfo = packageInfoFromFilename(filename);
-        const filePath = path.join(packageInfo.packageDir, filename);
+        const filePath = path.join(svgDir, filename);
         const svgText = await fs.readFile(filePath, 'utf-8');
 
         const match = filenamePartsPattern.exec(filename);
         if (match === null) {
           mismatchFilenames.push(filename);
-          return;
+          return {} as IconInfo; // not really IconInfo, but we'll throw an error before returning from outer function
         }
         const baseName = match[ 1 ];
-
-        const numberSplit = /^(\d)+(.+)/.exec(baseName)?.[ 0 ];
-        const functionName = numberSplit
-          ? pascalCase(toWords.convert(Number.parseInt(numberSplit[ 1 ]))) + pascalCase(numberSplit[ 2 ])
-          : pascalCase(baseName);
+        const functionName = baseNameToFunctionName(baseName, packageInfo.iconStyle);
 
         return {
           packageInfo,
@@ -146,5 +143,45 @@ export async function iconInfos() {
     const reportFilenames = mismatchFilenames.slice(0, 5).join('\n            ');
     const overflow = mismatchFilenames.length <= 5 ? '' : `\n            (${ mismatchFilenames.length } in error)`;
     throw new Error(`Unexpected filename encountered and cannot continue. Filename does not match expected pattern.\n  Filename: ${ reportFilenames }${ overflow }\n  Pattern : ${ filenamePartsPattern }`);
+  }
+
+  return iconInfosCache;
+}
+
+/**
+ * Very limited support for source casing; works for necessary use cases.
+ */
+function pascalCase(filename: string) {
+  let nextIsUpper = true;
+  let pascalCaseText = '';
+
+  for (const c of filename) {
+    if (nextIsUpper) {
+      pascalCaseText += c.toLocaleUpperCase();
+      nextIsUpper = false;
+    } else if (c === '_' || c === ' ') {
+      nextIsUpper = true;
+    } else {
+      pascalCaseText += c;
+    }
+  }
+
+  return pascalCaseText;
+}
+
+function baseNameToFunctionName(baseName: string, iconStyle: IconStyle) {
+  const numberSplit = /^([0-9]+)_?(.+)/.exec(baseName);
+  try {
+    const functionStart = numberSplit
+      ? pascalCase(toWords.convert(Number.parseInt(numberSplit[ 1 ]))) + pascalCase(numberSplit[ 2 ])
+      : pascalCase(baseName);
+    return `${ functionStart }${ pascalCase(iconStyle) }Icon`
+  } catch (ex) {
+    throw new Error(
+      `Error converting '${ baseName }' to variable name.\nnumberSplit:\n${ JSON.stringify(numberSplit, undefined, 2) }`,
+      {
+        cause: ex
+      }
+    );
   }
 }

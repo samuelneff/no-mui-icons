@@ -22,7 +22,7 @@ export async function generateDefinitions() {
       functionName
     } = iconInfo;
     exportsByIconStyle[ iconInfo.packageInfo.iconStyle ].push(
-      `  function ${ functionName }(props: React.SVGProps<SVGSVGElement>): SVGSVGElement;`
+      `  function ${ functionName }(props: SVGProps<SVGSVGElement>): SVGSVGElement;`
     );
   }
 
@@ -30,7 +30,7 @@ export async function generateDefinitions() {
     packageInfos.map(
       async packageInfo => {
         const exportLines = exportsByIconStyle[ packageInfo.iconStyle ].join('\n');
-        const indexContent = `declare module 'no-mui-icons' {\n${ exportLines }\n}\n`;
+        const indexContent = `import { SVGProps } from 'react';\n\ndeclare module 'no-mui-icons/${ packageInfo.moduleName }' {\n${ exportLines }\n}\n`;
         const indexPath = path.join(packageInfo.packageDir, 'index.d.ts');
         console.log(`  Writing '${ indexPath }'`)
         await fs.writeFile(path.join(packageInfo.packageDir, 'index.d.ts'), indexContent);

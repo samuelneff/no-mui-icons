@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "module": "CommonJS",
+    "target": "esnext",
+    "outDir": ".buildtools"
+  },
+  "include": [
+    "./packages/buildtools/index.ts"
+  ]
+}
