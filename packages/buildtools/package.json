@@ -1,15 +1,8 @@
 {
-  "name": "no-mui-icons",
+  "name": "no-mui-icons-buildtools",
   "version": "1.0.0",
-  "description": "Material UI Icons repackaged without MUI dependencies",
-  "workspaces": [
-    "packages/*"
-  ],
-  "main": "index.js",
-  "type": "module",
-  "peerDependencies": {
-    "react": "^18.3.1"
-  },
+  "description": "Build tools for No-MUI Icons",
+  "main": "index.ts",
   "devDependencies": {
     "@types/lodash": "^4.17.1",
     "@types/node": "^20.12.11",
@@ -20,7 +13,7 @@
     "utikity": "^1.0.0"
   },
   "scripts": {
-    "build": "ts-node packages/buildtools/index",
+    "build": "ts-node ./index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
