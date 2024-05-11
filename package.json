@@ -15,12 +15,12 @@
     "@types/node": "^20.12.11",
     "lodash": "^4.17.21",
     "to-words": "^4.0.1",
-    "ts-node": "^10.9.2",
+    "tsx": "^4.10.0",
     "typescript": "^5.4.5",
     "utikity": "^1.0.0"
   },
   "scripts": {
-    "build": "ts-node packages/buildtools/index",
+    "build": "tsx packages/buildtools/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
