@@ -15,10 +15,11 @@
     "lodash": "^4.17.21",
     "to-words": "^4.0.1",
     "ts-node": "^10.9.2",
-    "typescript": "^5.4.5"
+    "typescript": "^5.4.5",
+    "utik": "file://../utik"
   },
   "scripts": {
-    "build": "tsc && node .buildtools/index.js",
+    "build": "ts-node packages/buildtools/index",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

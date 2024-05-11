@@ -1,0 +1,5 @@
+import { SVGProps } from 'react';
+
+declare module 'no-mui-icons/%moduleName%' {
+%exportLines%
+}

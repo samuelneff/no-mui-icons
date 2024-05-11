@@ -36,6 +36,7 @@ export interface IconInfo {
   filename: string;
   baseName: string;
   functionName: string;
+  iconClassName: string;
   svgText: string;
 }
 
@@ -126,13 +127,14 @@ export async function iconInfos() {
         }
         const baseName = match[ 1 ];
         const functionName = baseNameToFunctionName(baseName, packageInfo.iconStyle);
-
+        const iconClassName = `no-mui-${ kebabCase(functionName) }`;
         return {
           packageInfo,
           filePath,
           filename,
           baseName,
           functionName,
+          iconClassName,
           svgText,
         };
       }
@@ -184,4 +186,10 @@ function baseNameToFunctionName(baseName: string, iconStyle: IconStyle) {
       }
     );
   }
+}
+
+const templateCache: Record<string, string> = {};
+export async function loadTemplate(templateFilename: string) {
+  return templateCache[ templateFilename ] ??
+    (templateCache[ templateFilename ] = await fs.readFile(path.join(__dirname, 'templates', templateFilename), 'utf-8'));
 }
