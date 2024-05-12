@@ -1,9 +1,9 @@
 import { ThumbUpFilledIcon } from 'no-mui-icons-filled';
 import { EmailSharpIcon } from 'no-mui-icons-sharp';
 
-import styles from './UseSection.module.css';
+import styles from './UsageSection.module.css';
 
-export function UseSection() {
+export function UsageSection() {
   return (
     <>
       <ThumbUpFilledIcon />

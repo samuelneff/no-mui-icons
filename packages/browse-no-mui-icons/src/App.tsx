@@ -1,21 +1,23 @@
-import { MouseEvent } from 'react';
+import { type MouseEvent, useCallback, useState } from 'react';
+
+import { BrowseSection } from './BrowseSection';
+import { StylingSection } from './StylingSection';
+import { UsageSection } from './UsageSection';
+
+import programmer from './assets/programmer.webp';
 
 import styles from './App.module.scss';
-import { UseSection } from './UseSection';
-import { StyleSection } from './StyleSection';
-import { BrowseSection } from './BrowseSection';
-import { useCallback, useState } from 'react';
 
 const sectionMap = {
-  use: UseSection,
-  style: StyleSection,
+  usage: UsageSection,
+  style: StylingSection,
   browse: BrowseSection,
 };
 
 type SectionName = keyof typeof sectionMap;
 
 const sectionNames: SectionName[] = [
-  'use',
+  'usage',
   'style',
   'browse',
 ];
@@ -77,6 +79,14 @@ function App() {
       <section className={styles.sectionContainer}>
         <CurrentSection />
       </section>
+
+      <img
+        className={styles.programmer}
+        src={programmer}
+        width={800}
+        height={800}
+        alt="Background image of programmer"
+      />
 
     </div>
   );

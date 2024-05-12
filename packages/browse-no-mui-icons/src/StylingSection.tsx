@@ -1,5 +1,5 @@
 
-export function StyleSection() {
+export function StylingSection() {
   return (
     <div>
 
