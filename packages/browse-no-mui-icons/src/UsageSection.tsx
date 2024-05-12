@@ -1,13 +1,53 @@
+import highlighter from  'highlight.js/lib/core';
+import javascriptHighlights from 'highlight.js/lib/languages/javascript';
+
+highlighter.registerLanguage('javascript', javascriptHighlights);
+
+import styles from './UsageSection.module.scss';
+import { CodeTitle } from './CodeTitle';
+
+const reactExampleCode = {
+  __html: highlighter.highlight(`
 import { ThumbUpFilledIcon } from 'no-mui-icons-filled';
 import { EmailSharpIcon } from 'no-mui-icons-sharp';
 
-import styles from './UsageSection.module.css';
-
-export function UsageSection() {
+function UseIcons() {
   return (
     <>
       <ThumbUpFilledIcon />
-      <EmailSharpIcon className={styles.iconInfo} />
+
+      <EmailSharpIcon
+        className={styles.iconClass}
+        aria-label="Send email"
+        role="button"
+      />
     </>
+  );
+}
+`.trim(),
+    {
+      language: 'jsx'
+    }
+  ).value
+};
+
+export function UsageSection() {
+  return (
+    <div className={styles.usageSection}>
+      <CodeTitle>
+        Installation
+      </CodeTitle>
+
+      <code>&gt; npm install no-mui-icons</code>
+
+      <CodeTitle>
+        React usage
+      </CodeTitle>
+
+      <pre><code
+        className="language-jsx"
+        dangerouslySetInnerHTML={reactExampleCode}
+      /></pre>
+    </div>
   );
 }

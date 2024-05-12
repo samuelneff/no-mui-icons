@@ -1,13 +1,9 @@
-$darkest-blue: #2e3a46;
-$dark-green: #324c1b;
-$dark-blue: #265d9c;
-$almost-white-blue: #def6ff;
-$almost-white-green: #e0f5ca;
 
 .app {
+  position: relative;
   color: $darkest-blue;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   padding: 20px 40px;
 
   background-image:
@@ -78,13 +74,13 @@ $almost-white-green: #e0f5ca;
 }
 
 .navBox {
-  padding-top: 40px;
+  padding-top: 20px;
 }
 
 .navItem {
   position: relative;
   display: inline-block;
-  width: 120px;
+  width: 150px;
   height: 40px;
 
   cursor: pointer;
@@ -138,7 +134,7 @@ $almost-white-green: #e0f5ca;
 .sectionContainer {
   position: relative;
   margin-top: 40px;
-  padding: 20px;
+  padding: 0 20px;
   background: white;
   border-top: 1px solid $dark-blue;
   border-left: 1px solid $dark-green;

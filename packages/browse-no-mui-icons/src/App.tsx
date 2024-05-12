@@ -7,10 +7,12 @@ import { UsageSection } from './UsageSection';
 import programmer from './assets/programmer.webp';
 
 import styles from './App.module.scss';
+import 'highlight.js/scss/github.scss';
+import 'highlight.js';
 
 const sectionMap = {
   usage: UsageSection,
-  style: StylingSection,
+  styling: StylingSection,
   browse: BrowseSection,
 };
 
@@ -18,7 +20,7 @@ type SectionName = keyof typeof sectionMap;
 
 const sectionNames: SectionName[] = [
   'usage',
-  'style',
+  'styling',
   'browse',
 ];
 
@@ -55,9 +57,9 @@ function App() {
         </span>
       </h2>
 
-      <div className={styles.installBox}>
+      {/* <div className={styles.installBox}>
         <code>npm install no-mui-icons</code>
-      </div>
+      </div> */}
 
       <nav className={styles.navBox}>
         {
