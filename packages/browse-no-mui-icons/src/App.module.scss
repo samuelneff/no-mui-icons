@@ -135,6 +135,15 @@
   position: relative;
   margin-top: 40px;
   padding: 0 20px;
+  min-height: calc(
+    100vh
+    - 40px /* app padding */
+    - 96px /* title */
+    - 26px /* subtitle */
+    - 60px /* navigation */
+    - 41px /* this container margin and border */
+  );
+
   background: white;
   border-top: 1px solid $dark-blue;
   border-left: 1px solid $dark-green;
