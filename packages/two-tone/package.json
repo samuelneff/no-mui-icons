@@ -1,5 +1,5 @@
 {
-  "name": "two-tone",
+  "name": "no-mui-icons-two-tone",
   "version": "1.0.0",
   "description": "Two tone Material UI Icons repackaged without MUI dependencies",
   "main": "index.js",

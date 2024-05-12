@@ -1,5 +1,5 @@
 {
-  "name": "sharp",
+  "name": "no-mui-icons-sharp",
   "version": "1.0.0",
   "description": "Sharp Material UI Icons repackaged without MUI dependencies",
   "main": "index.js",

@@ -110,7 +110,7 @@ export async function iconInfos() {
   }
   const mismatchFilenames = [] as string[];
 
-  const filenames = await fs.readdir(svgDir);
+  const filenames = (await fs.readdir(svgDir)).filter(filename => filename.endsWith(svgFinalSuffix));
 
   iconInfosCache = await Promise.all(
     filenames.map(

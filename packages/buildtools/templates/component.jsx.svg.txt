@@ -1,0 +1,1 @@
+<svg className={`no-mui-icon no-mui-%moduleName%-icon %iconClassName% ${ className ?? '' }`} {...props}

@@ -1,1 +1,1 @@
-  function %functionName%(props: SVGProps<SVGSVGElement>): SVGSVGElement;
+  function %functionName%(props: SVGProps<SVGSVGElement>): ReactNode;

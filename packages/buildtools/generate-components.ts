@@ -8,7 +8,9 @@ export async function generateComponents() {
 
   console.log('Generating component files');
 
-  const componentTemplate = await loadTemplate('component.ts.file.txt');
+  const componentTemplate = await loadTemplate('component.jsx.file.txt');
+  const svgTemplate = await loadTemplate('component.jsx.svg.txt');
+
   let generatedCount = 0;
   const infos = await iconInfos();
 
@@ -30,19 +32,32 @@ export async function generateComponents() {
           functionName,
         } = iconInfo;
 
+        const placeholders = {
+          ...packageInfo,
+          ...iconInfo,
+        };
+
+        const svgText = replacePlaceholers(
+          {
+            text: svgTemplate,
+            placeholders,
+            markerPrefix: '%',
+            markerSuffix: '%',
+          }
+        );
         const componentContent = replacePlaceholers(
           {
             text: componentTemplate,
             placeholders: {
-              ...packageInfo,
-              ...iconInfo,
+              ...placeholders,
+              svgTemplate
             },
             markerPrefix: '%',
             markerSuffix: '%',
           }
         );
 
-        const componentPath = path.join(packageInfo.packageDir, `${ functionName }.js`);
+        const componentPath = path.join(packageInfo.packageDir, `${ functionName }.jsx`);
         if (++generatedCount % 1000 === 0 || generatedCount === infos.length) {
           const countDisplay = countFormatter.format(generatedCount).padStart(infosLength.length);
           console.log(`  Writing ${ countDisplay } of ${ infosLength }`)

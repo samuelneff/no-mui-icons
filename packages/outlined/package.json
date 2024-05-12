@@ -1,5 +1,5 @@
 {
-  "name": "outlined",
+  "name": "no-mui-icons-outlined",
   "version": "1.0.0",
   "description": "Outlined Material UI Icons repackaged without MUI dependencies",
   "main": "index.js",

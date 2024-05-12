@@ -1,5 +1,5 @@
 {
-  "name": "rounded",
+  "name": "no-mui-icons-rounded",
   "version": "1.0.0",
   "description": "Rounded Material UI Icons repackaged without MUI dependencies",
   "main": "index.js",

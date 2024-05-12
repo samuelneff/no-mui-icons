@@ -1,0 +1,112 @@
+$darkest-blue: #2e3a46;
+$dark-green: #324c1b;
+$dark-blue: #265d9c;
+$almost-white-blue: #def6ff;
+$almost-white-green: #e0f5ca;
+
+.app {
+  color: $darkest-blue;
+  width: 100vw;
+  height: 100vh;
+  padding: 20px 40px;
+
+  background-image:
+    url('./assets/meadow-girl-without-sky.webp'),
+    linear-gradient(
+      to bottom,
+       $dark-blue,
+       #def6ff 200px
+      ),
+    linear-gradient(to top, #324c1b, #e0f5ca 200px);
+
+  background-position:
+    right bottom,
+    center top,
+    center bottom;
+
+  background-size:
+    512px 512px,
+    100% calc(100% - 200px),
+    100% 400px;
+
+  background-repeat:
+    no-repeat,
+    no-repeat,
+    no-repeat;
+}
+
+.title {
+  position: relative;
+  padding-left: 40px;
+  font-size: 96px;
+}
+
+.titleNo {
+  position: absolute;
+  display: block;
+  top: -15px;
+  left: -15px;
+
+  color: $dark-green;
+  letter-spacing: -8px;
+  text-shadow: 1px 1px 8px $almost-white-green;
+
+  transform: rotate(-30deg);
+}
+
+.titleMuiIcons {
+  color: $dark-blue;
+  text-shadow: 1px 1px 8px $almost-white-blue;
+}
+
+.subtitle {
+  padding: 10px 0 0 50px;
+}
+
+.subtitlePartOne {
+
+}
+
+.subtitlePartTwo {
+  padding-left: .75ch;
+  color: $dark-green
+}
+
+.installBox {
+  max-width: calc(100% - 250px);
+  margin-top: 40px;
+  padding: 1em;
+  background-color: black;
+  border: 1px solid white;
+  box-shadow: 0 0 5px $almost-white-blue;
+  color: $almost-white-blue;
+}
+
+.navBox {
+  padding-top: 40px;
+}
+
+.navItem {
+
+  display: inline-block;
+  width: 120px;
+  height: 40px;
+
+  cursor: pointer;
+  line-height: 40px;
+  text-align: center;
+
+  &.navItemCurrent {
+    cursor: default;
+    font-weight: bold;
+  }
+
+  &:not(.navItemCurrent):hover {
+    color: $almost-white-blue;
+    background: $darkest-blue;
+  }
+}
+
+.sectionContainer {
+
+}
