@@ -11,6 +11,7 @@
     "react": "^18.3.1"
   },
   "devDependencies": {
+    "@radix-ui/themes": "^3.0.3",
     "@types/lodash": "^4.17.1",
     "@types/node": "^20.12.11",
     "highlight.js": "^11.9.0",

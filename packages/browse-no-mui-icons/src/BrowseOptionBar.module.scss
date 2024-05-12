@@ -1,0 +1,114 @@
+.controls {
+  display: flex;
+  gap: 40px;
+}
+
+.controlContainer {
+  height: 3em;
+  line-height: 3em;
+}
+
+.controlLabel {
+  display: inline-block;
+  padding-right: 20px;
+}
+
+@media (max-width: 1030px) {
+  .controlLabel {
+    display: none;
+  }
+}
+
+.control {
+  position: relative;
+  display: inline-block;
+  top: calc(1.5em - 15px);
+}
+
+.searchIcon {
+  margin-right: 12px;
+}
+.searchInput {
+  width: 300px;
+}
+
+.selectStyleItem {
+  position: relative;
+  width: 120px;
+  height: 3em;
+  padding-left: 42px;
+  line-height: 3em;
+}
+
+.selectStyleIcon {
+  position: absolute;
+  display: block;
+  top: calc(1.5em - 12px);
+  left: 6px;
+}
+
+.selectColor {
+
+}
+
+.selectColorItem {
+  position: relative;
+  width: 120px;
+  height: 3em;
+  padding-left: 42px;
+  line-height: 3em;
+
+  &::before {
+    content: " ";
+    position: absolute;
+    display: block;
+    top: calc(1.5em - 12px);
+    left: 6px;
+    width: 24px;
+    height: 24px;
+    border-radius: 3px;
+  }
+}
+
+.selectColorSlate {
+  &::before {
+    background-color: $slate-color;
+  }
+}
+
+.selectColorCrimson {
+  &::before {
+    background-color: $crimson-color;
+  }
+}
+
+.selectColorJade {
+  &::before {
+    background-color: $jade-color;
+  }
+}
+
+.selectColorAmber {
+  &::before {
+    background-color: $amber-color;
+  }
+}
+
+.selectColorIndigo {
+  &::before {
+    background-color: $indigo-color;
+  }
+}
+
+@media (max-width: 840px) {
+  .selectStyleItem,
+  .selectColorItem {
+    width: 40px;
+  }
+
+  .selectStyleLabel,
+  .selectColorLabel {
+    display: none;
+  }
+}
+

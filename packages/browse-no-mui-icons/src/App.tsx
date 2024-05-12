@@ -1,4 +1,5 @@
 import { type MouseEvent, useCallback, useState } from 'react';
+import { Theme } from '@radix-ui/themes';
 
 import { BrowseSection } from './BrowseSection';
 import { StylingSection } from './StylingSection';
@@ -7,8 +8,11 @@ import { UsageSection } from './UsageSection';
 import programmer from './assets/programmer.webp';
 
 import styles from './App.module.scss';
+
 import 'highlight.js/scss/github.scss';
 import 'highlight.js';
+
+import '@radix-ui/themes/styles.css';
 
 const sectionMap = {
   usage: UsageSection,
@@ -38,7 +42,11 @@ function App() {
   const CurrentSection = sectionMap[ currentSectionName ];
 
   return (
-    <div className={styles.app}>
+    <Theme
+      className={styles.app}
+      accentColor='indigo'
+      grayColor='slate'
+    >
       <h1 className={styles.title}>
         <span className={styles.titleNo}>
           no
@@ -67,11 +75,11 @@ function App() {
             sectionName => (
               <div
                 key={sectionName}
-                className={`${ styles.navItem } ${ sectionName === currentSectionName ? styles.navItemCurrent : ''}`}
+                className={`${ styles.navItem } ${ sectionName === currentSectionName ? styles.navItemCurrent : '' }`}
                 data-section-name={sectionName}
                 onClick={handleSectionClick}
               >
-                { sectionName }
+                {sectionName}
               </div>
             )
           )
@@ -90,7 +98,7 @@ function App() {
         alt="Background image of programmer"
       />
 
-    </div>
+    </Theme>
   );
 }
 
