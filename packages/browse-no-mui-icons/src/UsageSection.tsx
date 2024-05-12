@@ -1,5 +1,7 @@
-import highlighter from  'highlight.js/lib/core';
+import highlighter from 'highlight.js/lib/core';
 import javascriptHighlights from 'highlight.js/lib/languages/javascript';
+import { ThumbUpFilledIcon } from 'no-mui-icons-filled';
+import { EmailSharpIcon } from 'no-mui-icons-sharp';
 
 highlighter.registerLanguage('javascript', javascriptHighlights);
 
@@ -13,7 +15,7 @@ import { EmailSharpIcon } from 'no-mui-icons-sharp';
 
 function UseIcons() {
   return (
-    <>
+    <div>
       <ThumbUpFilledIcon />
 
       <EmailSharpIcon
@@ -21,7 +23,7 @@ function UseIcons() {
         aria-label="Send email"
         role="button"
       />
-    </>
+    </div>
   );
 }
 `.trim(),
@@ -38,7 +40,8 @@ export function UsageSection() {
         Installation
       </CodeTitle>
 
-      <code>&gt; npm install no-mui-icons</code>
+      <pre><code>&gt; npm install no-mui-icons-filled</code></pre>
+      <pre><code>&gt; npm install no-mui-icons-sharp</code></pre>
 
       <CodeTitle>
         React usage
