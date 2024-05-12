@@ -94,12 +94,12 @@
     &::before {
       position: absolute;
       display: block;
-      left: 0;
+      left: 10px;
       bottom: 0;
-      width: 50%;
+      width: calc(50% - 10px);
       height: 3px;
 
-      border-radius: 2px;
+      border-radius: 3px;
       background: linear-gradient(
         to right,
         $dark-blue,
@@ -110,9 +110,9 @@
     &::after {
       position: absolute;
       display: block;
-      right: 0;
+      right: 10px;
       bottom: 0;
-      width: 50%;
+      width: calc(50% - 10px);
       height: 3px;
 
       border-radius: 2px;
