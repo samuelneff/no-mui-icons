@@ -30,27 +30,33 @@ export async function generateComponents() {
         const {
           packageInfo,
           functionName,
+          svgText,
         } = iconInfo;
 
         const placeholders = {
           ...packageInfo,
           ...iconInfo,
+          svgText: svgText.replace(
+            '<svg ',
+            ''
+          )
         };
 
-        const svgText = replacePlaceholers(
+        const newSvgText = replacePlaceholers(
           {
-            text: svgTemplate,
+          text: svgTemplate,
             placeholders,
             markerPrefix: '%',
             markerSuffix: '%',
           }
         );
+
         const componentContent = replacePlaceholers(
           {
             text: componentTemplate,
             placeholders: {
               ...placeholders,
-              svgTemplate
+              svgText: newSvgText
             },
             markerPrefix: '%',
             markerSuffix: '%',
