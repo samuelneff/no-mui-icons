@@ -13,7 +13,7 @@ export function BrowseSection() {
 
   const handleSearchTextChange = useCallback(
     (newSearchText: string) => {
-      setSearchText(newSearchText.replace(/\W/g, ''));
+      setSearchText(newSearchText.replace(/[^a-zA-Z0-9]/g, '').toLowerCase());
     },
     []
   );

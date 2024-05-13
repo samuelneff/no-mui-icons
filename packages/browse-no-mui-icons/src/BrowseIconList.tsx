@@ -79,17 +79,18 @@ function filterKeys(keys: string[], searchText: string) {
   const charsRegex = new RegExp(searchText.split('').join('.*'), 'i');
 
   for (const key of keyBases) {
-    if (key === searchText) {
+    const lowercaseKey = key.toLowerCase(); // not i18n safe but all icons and search are is English letters only
+    if (lowercaseKey === searchText) {
       startMatches.unshift(key);
       continue;
     }
 
-    if (key.startsWith(searchText)) {
+    if (lowercaseKey.startsWith(searchText)) {
       startMatches.push(key);
       continue;
     }
 
-    if (key.includes(searchText)) {
+    if (lowercaseKey.includes(searchText)) {
       containsMatches.push(key);
       continue;
     }
