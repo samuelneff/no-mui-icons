@@ -1,0 +1,32 @@
+.iconMarqueeOuterContainer {
+  position: absolute;
+  top: 20px;
+  left: 250px;
+  right: 20px;
+  height: 32px;
+
+  overflow: hidden;
+}
+
+.iconMarqueeInnerContainer {
+  position: absolute;
+  height: 40px;
+  overflow: hidden;
+  animation: scroll-through-them 12000s linear infinite;
+}
+
+.iconMarqueeIcon {
+  width: 32px;
+  height: 32px;
+  margin-right: 20px;
+  fill: $dark-blue;
+}
+
+@keyframes scroll-through-them {
+  from {
+    left: 0;
+  }
+  to {
+    left: -125400px;
+  }
+}

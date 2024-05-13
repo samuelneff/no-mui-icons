@@ -7,6 +7,7 @@ import { CodeExplanation } from './CodeExplanation';
 import { InlineCode } from './InlineCode';
 
 import styles from './StylingSection.module.scss';
+import { IconMarquee } from './IconMarquee';
 
 highlighter.registerLanguage('javascript', javascriptHighlights);
 highlighter.registerLanguage('css', cssHighlights);
@@ -73,6 +74,8 @@ export function StylingSection() {
       <CodeTitle>
         Custom CSS classes
       </CodeTitle>
+
+      <IconMarquee />
 
       <CodeExplanation>
         Every icon accepts a custom <InlineCode>className</InlineCode> attribute that is

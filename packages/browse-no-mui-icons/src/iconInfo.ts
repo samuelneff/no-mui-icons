@@ -40,6 +40,8 @@ export const iconSetByName: Record<string, Record<string, FunctionComponent<HTML
   'two-tone': twoToneIcons,
 };
 
+export const filledIconNames = Object.keys(filledIcons).sort();
+
 export const colorNames = [
   'slate',
   'crimson',

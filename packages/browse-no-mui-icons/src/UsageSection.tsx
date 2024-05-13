@@ -7,6 +7,7 @@ highlighter.registerLanguage('javascript', javascriptHighlights);
 
 import styles from './UsageSection.module.scss';
 import { CodeTitle } from './CodeTitle';
+import { IconMarquee } from './IconMarquee';
 
 const reactExampleCode = {
   __html: highlighter.highlight(`
@@ -39,6 +40,8 @@ export function UsageSection() {
       <CodeTitle>
         Installation
       </CodeTitle>
+
+      <IconMarquee />
 
       <pre><code>&gt; npm install no-mui-icons-filled</code></pre>
       <pre><code>&gt; npm install no-mui-icons-sharp</code></pre>
