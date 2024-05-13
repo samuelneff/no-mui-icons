@@ -5,7 +5,8 @@ import { BrowseSection } from './BrowseSection';
 import { StylingSection } from './StylingSection';
 import { UsageSection } from './UsageSection';
 
-import programmer from './assets/programmer.webp';
+import npmUrl from './assets/npm.png';
+import programmerUrl from './assets/programmer.webp';
 
 import styles from './App.module.scss';
 
@@ -15,6 +16,7 @@ import 'highlight.js';
 import '@radix-ui/themes/styles.css';
 import { formatThousands } from 'utikity';
 import { totalIconCount } from './iconInfo';
+import { GitHubIcon } from './GitHubIcon';
 
 const sectionMap = {
   usage: UsageSection,
@@ -58,6 +60,29 @@ function App() {
         </span>
       </h1>
 
+      <a
+        className={styles.npmLink}
+        href="https://www.npmjs.com/search?q=no-mui-icons"
+        target="_blank"
+        title="no-mui-icons on npm"
+      >
+        <img
+          className={styles.npmIcon}
+          src={npmUrl}
+          width={40}
+          height={40}
+        />
+      </a>
+
+      <a
+        className={styles.githubLink}
+        href="https://github.com/samuelneff/no-mui-icons"
+        target="_blank"
+        title="no-mui-icons on GitHub"
+      >
+        <GitHubIcon className={styles.githubIcon} />
+      </a>
+
       <h2 className={styles.subtitle}>
         <span className={styles.subtitlePartOne}>
           All {formatThousands(totalIconCount) } icons from Material UI;
@@ -94,7 +119,7 @@ function App() {
 
       <img
         className={styles.programmer}
-        src={programmer}
+        src={programmerUrl}
         width={800}
         height={800}
         alt="Background image of programmer"

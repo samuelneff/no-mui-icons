@@ -74,6 +74,37 @@
   color: $almost-white-blue;
 }
 
+.npmLink,
+.githubLink {
+  position: absolute;
+  top: 20px;
+  right: 80px;
+  padding: 10px 10px 5px 10px;
+
+  &:hover {
+    background-color: $almost-white-blue;
+    box-shadow: 1px 1px 4px $darkest-blue;
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
+}
+
+.npmLink {
+  right: 90px;
+}
+
+.githubLink {
+  right: 20px;
+}
+
+.npmIcon,
+.githubIcon {
+  width: 40px;
+  height: 40px;
+}
+
 .navBox {
   padding-top: 20px;
 }
