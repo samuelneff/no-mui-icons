@@ -3,6 +3,7 @@ import * as path from 'path';
 import { replacePlaceholers } from 'utikity';
 
 import { iconInfos, loadTemplate, packageInfos } from './util';
+import { camelCase } from 'lodash';
 
 export async function generateComponents() {
 
@@ -42,13 +43,15 @@ export async function generateComponents() {
           )
         };
 
-        const newSvgText = replacePlaceholers(
-          {
-          text: svgTemplate,
-            placeholders,
-            markerPrefix: '%',
-            markerSuffix: '%',
-          }
+        const newSvgText = svgTextToJsx(
+          replacePlaceholers(
+            {
+              text: svgTemplate,
+              placeholders,
+              markerPrefix: '%',
+              markerSuffix: '%',
+            }
+          )
         );
 
         const componentContent = replacePlaceholers(
@@ -75,4 +78,49 @@ export async function generateComponents() {
   );
 
   console.log('  Done');
+}
+
+function svgTextToJsx(svgText: string) {
+
+  return svgText.replace(
+
+    // There are only two places where styles are used in the icons, both within screen_search_desktop_24px.svg
+    // style="enable-background:new 0 0 24 24;"
+    // style="fill:none"
+
+    /style="([\w-]+):([^"]+?);?"/g,
+    styleConverter
+  ).replace(
+
+    // SVG attributes with a dash in them need to be converted to camel case
+    // enable-background="new 0 0 24 24"
+    // fill-opacity=".9"
+    // fill-rule="evenodd"
+    // clip-rule="evenodd"
+    //
+    // This is a big one; there are 5,779 changes at time of writing
+    //
+    / ([a-z]+-[a-z-]+)="/g,
+    attributeNameCaser
+  ).replace(
+
+    // edit_attributes_24px.svg specifies a class on one of the paths. It's not
+    // used but we need to fix it to be className to work in JSX.
+    " class=",
+    " className="
+  );
+}
+/**
+ * Extremely naive conversion from text style attributes to object styles that React needs. It works for the
+ * very small use cases we need but it's possible it'll need to be enhanced in the future if new icons are
+ * added that have more complex inline styling.
+ */
+function styleConverter(_fullMatch: string, propertyName: string, propertyValue: string) {
+  const jsxName = camelCase(propertyName);
+  const jsxValue = `'${ propertyValue }'`;
+  return `style={{${ jsxName }: ${ jsxValue }}}`
+}
+
+function attributeNameCaser(_fullMatch: string, attributeName: string) {
+  return ` ${ camelCase(attributeName) }="`;
 }

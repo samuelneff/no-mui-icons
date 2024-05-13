@@ -1,0 +1,49 @@
+.browseIconList {
+  width: 100%;
+  height: 100%;
+  padding-top: 30px;
+  overflow-y: auto;
+}
+
+.browseIconListSlate svg{
+  fill: $slate-color;
+}
+
+.browseIconListCrimson svg {
+  fill: $crimson-color;
+}
+
+.browseIconListJade svg {
+  fill: $jade-color;
+}
+
+.browseIconListAmber svg {
+  fill: $amber-color;
+}
+
+.browseIconListIndigo svg {
+  fill: $indigo-color;
+}
+
+.iconContainer {
+  display: inline-block;
+  font-family: "Ubuntu Mono", monospace;
+  font-size: 9px;
+  width: 75px;
+  margin-right: 15px;
+  margin-bottom: 30px;
+  text-align: center;
+  & > svg {
+    display: block;
+    margin: 0 auto;
+    width: 36px;
+    height: 36px;
+  }
+}
+
+.iconLabel {
+  height: 1.25em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

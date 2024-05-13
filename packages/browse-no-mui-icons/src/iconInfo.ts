@@ -12,6 +12,8 @@ const { ThumbUpTwoToneIcon } = twoToneIcons;
 
 export type StyleName = keyof typeof styleIconByName;
 
+export const iconKeySuffixPattern = /(Filled|Outlined|Rounded|Sharp|TwoTone)Icon$/;
+
 export const styleNames: StyleName[] = [
   'filled',
   'outlined',
