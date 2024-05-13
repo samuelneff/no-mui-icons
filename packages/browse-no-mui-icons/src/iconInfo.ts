@@ -42,6 +42,8 @@ export const iconSetByName: Record<string, Record<string, FunctionComponent<HTML
 
 export const filledIconNames = Object.keys(filledIcons).sort();
 
+export const totalIconCount = filledIconNames.length * 5; // 5 styles
+
 export const colorNames = [
   'slate',
   'crimson',

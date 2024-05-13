@@ -13,6 +13,8 @@ import 'highlight.js/scss/github.scss';
 import 'highlight.js';
 
 import '@radix-ui/themes/styles.css';
+import { formatThousands } from 'utikity';
+import { totalIconCount } from './iconInfo';
 
 const sectionMap = {
   usage: UsageSection,
@@ -58,7 +60,7 @@ function App() {
 
       <h2 className={styles.subtitle}>
         <span className={styles.subtitlePartOne}>
-          All the icons from Material UI;
+          All {formatThousands(totalIconCount) } icons from Material UI;
         </span>
         <span className={styles.subtitlePartTwo}>
           without the dependency on Material UI.
