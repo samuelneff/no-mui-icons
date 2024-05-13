@@ -79,8 +79,12 @@ h1, h2, h3, h4, h5, h6 {
 
 code {
   font-family: "Ubuntu Mono", monospace;
+  font-size: 14px;
 }
 
+pre {
+  line-height: 16px;
+}
 pre + pre {
   padding-top: 1em;
 }
@@ -106,3 +110,11 @@ div[role=dialog] {
   height: 500px;
 }
 
+@media (max-width: 680px) {
+  pre {
+    line-height: 14px;
+  }
+  code {
+    font-size: 12px;
+  }
+}

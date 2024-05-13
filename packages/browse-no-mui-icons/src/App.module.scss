@@ -52,7 +52,8 @@
 }
 
 .subtitle {
-  padding: 10px 0 0 50px;
+  margin-top: -20px;
+  padding: 0 0 0 50px;
 }
 
 .subtitlePartOne {
@@ -80,7 +81,7 @@
 .navItem {
   position: relative;
   display: inline-block;
-  width: 150px;
+  width: 125px;
   height: 40px;
 
   cursor: pointer;
@@ -190,5 +191,19 @@
     height: 256px;
     right: 0;
     bottom: 0;
+  }
+}
+
+@media (max-width: 680px) {
+  .title {
+    font-size: 64px;
+  }
+
+  .subtitle {
+    font-size: 12px;
+  }
+  .subtitlePartTwo {
+    display: block;
+    padding-left: 0;
   }
 }

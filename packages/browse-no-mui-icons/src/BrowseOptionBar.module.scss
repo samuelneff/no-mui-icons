@@ -13,12 +13,6 @@
   padding-right: 20px;
 }
 
-@media (max-width: 1030px) {
-  .controlLabel {
-    display: none;
-  }
-}
-
 .control {
   position: relative;
   display: inline-block;
@@ -30,6 +24,10 @@
 }
 .searchInput {
   width: 300px;
+}
+
+.selectStyleTrigger {
+
 }
 
 .selectStyleItem {
@@ -47,7 +45,7 @@
   left: 6px;
 }
 
-.selectColor {
+.selectColorTrigger {
 
 }
 
@@ -100,12 +98,58 @@
   }
 }
 
+@media (max-width: 1030px) {
+  .controlLabel {
+    display: none;
+  }
+}
+
+
 @media (max-width: 840px) {
   .selectStyleItem,
   .selectColorItem {
     width: 40px;
   }
 
+  .selectStyleLabel,
+  .selectColorLabel {
+    display: none;
+  }
+}
+
+@media (max-width: 680px) {
+
+  .controls {
+    gap: 20px;
+  }
+
+  .searchInput {
+    width: 200px;
+  }
+
+  .control > .selectStyleTrigger,
+  .control > .selectColorTrigger {
+    width: 60px;
+  }
+
+  .selectStyleItem {
+  }
+
+  .selectColorItem {
+    &::before {
+      top: 12px;
+      left: 0;
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  .selectStyleIcon {
+    top: 12px;
+    left: 0;
+    width: 16px;
+    height: 16px;
+  }
   .selectStyleLabel,
   .selectColorLabel {
     display: none;

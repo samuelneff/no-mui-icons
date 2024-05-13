@@ -64,7 +64,7 @@ export function BrowseOptionBar({
             defaultValue={selectedStyle}
             onValueChange={onIconStyleChange}
           >
-            <Select.Trigger className={styles.styleSelect} />
+            <Select.Trigger className={styles.selectStyleTrigger} />
             <Select.Content>
               {
                 styleNames.map(
@@ -101,7 +101,7 @@ export function BrowseOptionBar({
             defaultValue={selectedColor}
             onValueChange={onColorChange}
           >
-            <Select.Trigger className={styles.colorSelect} />
+            <Select.Trigger className={styles.selectColorTrigger} />
             <Select.Content>
               {
                 colorNames.map(
