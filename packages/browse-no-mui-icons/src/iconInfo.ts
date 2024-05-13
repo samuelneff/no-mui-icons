@@ -1,8 +1,10 @@
+import { isString } from 'lodash';
 import * as filledIcons from 'no-mui-icons-filled';
 import * as outlinedIcons from 'no-mui-icons-outlined';
 import * as roundedIcons from 'no-mui-icons-rounded';
 import * as sharpIcons from 'no-mui-icons-sharp';
 import * as twoToneIcons from 'no-mui-icons-two-tone';
+import { FunctionComponent, HTMLAttributes } from 'react';
 
 const { ThumbUpFilledIcon } = filledIcons;
 const { ThumbUpOutlinedIcon } = outlinedIcons;
@@ -30,7 +32,7 @@ export const styleIconByName = {
   'two-tone': ThumbUpTwoToneIcon,
 };
 
-export const iconSetByName = {
+export const iconSetByName: Record<string, Record<string, FunctionComponent<HTMLAttributes<SVGElement>>>> = {
   'filled': filledIcons,
   'outlined': outlinedIcons,
   'rounded': roundedIcons,
@@ -45,3 +47,8 @@ export const colorNames = [
   'amber',
   'indigo',
 ];
+
+export function iconBaseName(icon: string | FunctionComponent) {
+  const iconName = isString(icon) ? icon : icon.name;
+  return iconName.replace(iconKeySuffixPattern, '');
+}

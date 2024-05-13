@@ -144,41 +144,10 @@
     - 41px /* this container margin and border */
   );
 
-  background: white;
-  border-top: 1px solid $dark-blue;
-  border-left: 1px solid $dark-green;
+  background: $almost-white-blue;
 
-  &::before {
-    content: " ";
-    position: absolute;
-    display: block;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: 1px;
+  @include gradient-border();
 
-    background: linear-gradient(
-      to bottom,
-      $dark-blue,
-      $almost-white-blue
-    );
-  }
-
-  &::after {
-    content: " ";
-    position: absolute;
-    display: block;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-
-    background: linear-gradient(
-      to right,
-      $dark-green,
-      $almost-white-green
-    );
-  }
 
 }
 

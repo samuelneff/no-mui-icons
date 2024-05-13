@@ -1,28 +1,73 @@
 .browseIconList {
   width: 100%;
   height: 100%;
-  padding-top: 30px;
+  padding: 30px 5px 5px 5px;
   overflow-y: auto;
 }
 
-.browseIconListSlate svg{
-  fill: $slate-color;
+.browseIconListSlate {
+  & .iconContainer {
+    color: $slate-color;
+
+    &:hover {
+      outline: 1px solid $slate-color;
+    }
+  }
+  & svg {
+    fill: $slate-color;
+  }
 }
 
-.browseIconListCrimson svg {
-  fill: $crimson-color;
+.browseIconListCrimson {
+  & .iconContainer {
+    color: $crimson-color;
+
+    &:hover {
+      outline: 1px solid $crimson-color;
+    }
+  }
+  & svg {
+    fill: $crimson-color;
+  }
 }
 
-.browseIconListJade svg {
-  fill: $jade-color;
+.browseIconListJade {
+  & .iconContainer {
+    color: $jade-color;
+
+    &:hover {
+      outline: 1px solid $jade-color;
+    }
+  }
+  & svg {
+    fill: $jade-color;
+  }
 }
 
-.browseIconListAmber svg {
-  fill: $amber-color;
+.browseIconListAmber {
+  & .iconContainer {
+    color: $amber-color;
+
+    &:hover {
+      outline: 1px solid $amber-color;
+    }
+  }
+  & svg {
+    fill: $amber-color;
+  }
 }
 
-.browseIconListIndigo svg {
-  fill: $indigo-color;
+.browseIconListIndigo {
+  & .iconContainer {
+    color: $indigo-color;
+
+    &:hover {
+      outline: 1px solid $indigo-color;
+    }
+  }
+  & svg {
+    fill: $indigo-color;
+  }
 }
 
 .iconContainer {
@@ -32,12 +77,17 @@
   width: 75px;
   margin-right: 15px;
   margin-bottom: 30px;
+  padding: 5px;
+
+  cursor: pointer;
   text-align: center;
+
   & > svg {
     display: block;
     margin: 0 auto;
     width: 36px;
     height: 36px;
+    margin-bottom: 5px;
   }
 }
 

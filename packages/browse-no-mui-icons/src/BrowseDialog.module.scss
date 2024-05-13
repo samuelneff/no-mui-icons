@@ -1,0 +1,133 @@
+.browseDialogBlocker {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: $dark-blue-blocker-alpha;
+}
+.browseDialogContainer {
+  background-color: $almost-white-gray;
+  position: absolute;
+  top: 200px;
+  left: calc(50% - 225px);
+  width: 450px;
+  // height: 400px;
+  padding: 40px;
+  box-shadow: 2px 2px 6px $darkest-blue;
+  @include gradient-border();
+}
+
+.browseDetailTitle {
+  position: relative;
+  padding-bottom: 20px;
+  font-size: 22px;
+}
+
+.closeButtonContainer {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 8px;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+
+  &:hover {
+    top: 8px;
+    right: 12px;
+    box-shadow: 2px 2px 3px $darkest-blue;
+  }
+
+  &:active {
+    top: 10px;
+    right: 10px;
+    box-shadow: 1px 1px 2px $darkest-blue;
+  }
+}
+
+.closeButtonIcon {
+  width: 32px;
+  height: 32px;
+}
+
+.browseDialogInstructions {
+  color: $lightish-gray;
+  font-size: 0.9em;
+  margin-bottom: 20px;
+}
+.browseDetailRow {
+  position: relative;
+  font-size: 22px;
+  margin-bottom: 20px;
+  padding-left: 50px;
+
+  cursor: pointer;
+  font-family: "Ubuntu Mono", monospace;
+  line-height: 40px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.browseDetailIcon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+}
+
+.browseDetailBaseName {
+
+}
+.browseDetailIconName {
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.browseDetailStyleName {
+  color: $dark-blue;
+}
+
+.browseDetailIconSuffix {
+  color: $lightish-gray;
+}
+
+.browseDetailCopiedContainer {
+  position: absolute;
+  bottom: -20px;
+  left: 50px;
+  padding-left: 25px;
+
+  font-size: 14px;
+  color: $dark-green;
+  opacity: 0;
+
+  animation: fade-in-and-out 5s ease-in-out both;
+}
+
+.browseDetailCopiedIcon {
+  position: absolute;
+  bottom: 11px;
+  left: 0;
+  width: 18px;
+  height: 18px;
+  fill: $dark-green;
+}
+
+@keyframes fade-in-and-out {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

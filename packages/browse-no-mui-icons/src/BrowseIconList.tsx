@@ -1,19 +1,24 @@
-import { FunctionComponent, useMemo } from 'react';
-import { StyleName, iconKeySuffixPattern, iconSetByName } from './iconInfo';
+import { FunctionComponent, useCallback, useMemo } from 'react';
 import { startCase } from 'lodash';
+
+import { BrowseOptionsCommonProps } from './BrowseOptionBar';
+import { iconBaseName, iconKeySuffixPattern, iconSetByName } from './iconInfo';
 
 import styles from './BrowseIconList.module.scss';
 
-export interface BrowseIconListProps {
-  searchText: string;
-  selectedStyle: StyleName;
-  selectedColor: string;
+export interface BrowseIconListCommonProps {
+  onIconClick(iconFunctionName: string): void;
+}
+
+
+export interface BrowseIconListProps extends BrowseOptionsCommonProps, BrowseIconListCommonProps {
 }
 
 export function BrowseIconList({
   searchText,
   selectedStyle,
-  selectedColor
+  selectedColor,
+  onIconClick,
 }: BrowseIconListProps) {
 
   const selectedIcons = useMemo(
@@ -39,15 +44,11 @@ export function BrowseIconList({
         selectedIcons.length
           ? selectedIcons.map(
             Icon => (
-              <div
+              <BrowseIconListItem
                 key={Icon.name}
-                className={styles.iconContainer}
-              >
-                <Icon />
-                <div className={styles.iconLabel}>
-                  {Icon.name.replace(iconKeySuffixPattern, '')}
-                </div>
-              </div>
+                Icon={Icon}
+                onIconClick={onIconClick}
+              />
             ))
           : (
             <>
@@ -63,6 +64,38 @@ export function BrowseIconList({
       }
     </div>
   )
+}
+
+interface BrowseIconListItemProps extends BrowseIconListCommonProps {
+  Icon: FunctionComponent;
+
+}
+function BrowseIconListItem({
+  Icon,
+  onIconClick,
+}: BrowseIconListItemProps) {
+
+  const handleClick = useCallback(
+    () => {
+      onIconClick(Icon.name);
+    },
+    [
+      Icon,
+      onIconClick,
+    ]
+  );
+
+  return (
+    <div
+      className={styles.iconContainer}
+      onClick={handleClick}
+    >
+      <Icon />
+      <div className={styles.iconLabel}>
+        {iconBaseName(Icon)}
+      </div>
+    </div>
+  );
 }
 
 function filterKeys(keys: string[], searchText: string) {

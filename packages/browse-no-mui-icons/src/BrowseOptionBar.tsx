@@ -4,9 +4,14 @@ import { Select, TextField } from '@radix-ui/themes';
 import { ChangeEvent, useCallback } from 'react';
 import { SearchFilledIcon } from 'no-mui-icons-filled';
 import { startCase } from 'lodash';
-import { BrowseIconListProps } from './BrowseIconList';
 
-export interface BrowseOptionBarProps extends BrowseIconListProps {
+export interface BrowseOptionsCommonProps {
+  searchText: string;
+  selectedStyle: StyleName;
+  selectedColor: string;
+}
+
+export interface BrowseOptionBarProps extends BrowseOptionsCommonProps {
   onSearchTextChange(value: string): void;
   onIconStyleChange(value: StyleName): void;
   onColorChange(value: string): void;

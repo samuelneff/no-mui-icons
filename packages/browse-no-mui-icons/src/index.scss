@@ -97,3 +97,12 @@ li:first-child {
 li + li {
   padding-top: 0.5em;
 }
+
+div[role=dialog] {
+  position: fixed;
+  border: 1px solid $dark-blue;
+  border-radius: 5px;
+  width: 400px;
+  height: 500px;
+}
+

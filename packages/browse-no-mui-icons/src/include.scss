@@ -1,11 +1,53 @@
 $darkest-blue: #2e3a46;
 $dark-green: #324c1b;
 $dark-blue: #265d9c;
+
 $almost-white-blue: #def6ff;
 $almost-white-green: #e0f5ca;
+$almost-white-gray: #fdfdfd;
 
 $slate-color: #111113;
 $crimson-color: #E93D82;
 $jade-color: #1FD8A4;
 $amber-color: #FFCA16;
 $indigo-color: #3E63DD;
+
+$lightish-gray: #969696;
+$dark-blue-blocker-alpha: #265d9c66;
+
+@mixin gradient-border() {
+  border-top: 1px solid $dark-blue;
+  border-left: 1px solid $dark-green;
+
+  &::before {
+    content: " ";
+    position: absolute;
+    display: block;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 1px;
+
+    background: linear-gradient(
+      to bottom,
+      $dark-blue,
+      $almost-white-blue
+    );
+  }
+
+  &::after {
+    content: " ";
+    position: absolute;
+    display: block;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+
+    background: linear-gradient(
+      to right,
+      $dark-green,
+      $almost-white-green
+    );
+  }
+}
