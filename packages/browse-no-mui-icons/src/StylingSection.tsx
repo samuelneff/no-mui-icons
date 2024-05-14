@@ -100,18 +100,18 @@ export function StylingSection() {
         <ul>
           <li><InlineCode>no-mui-icon</InlineCode> is added to every icon.</li>
           <li>
-            <InlineCode>no-mui-[style]-icon</InlineCode> where <InlineCode>[style]</InlineCode>
-            is the appropriate icon style:
+            <InlineCode>no-mui-[style]-icon</InlineCode> where <InlineCode>[style]</InlineCode> is
+            the appropriate icon style:
             <InlineCode>&nbsp;filled</InlineCode>,
             <InlineCode>&nbsp;outlined</InlineCode>,
             <InlineCode>&nbsp;sharp</InlineCode>,
-            <InlineCode>&nbsp;rounded</InlineCode>,
+            <InlineCode>&nbsp;rounded</InlineCode>, or
             <InlineCode>&nbsp;two-tone</InlineCode>.
           </li>
           <li>
-            <InlineCode>no-mui-[icon-name]-[style]-icon</InlineCode> where <InlineCode>[icon-name]</InlineCode>
-            is the kebab-case name of the icon and <InlineCode>[style]</InlineCode> is one of the previously
-            mentioned styles.
+            <InlineCode>no-mui-[icon-name]-[style]-icon</InlineCode> where <InlineCode>[icon-name]</InlineCode> is
+            the kebab-case name of the icon and <InlineCode>[style]</InlineCode> is one of the previously
+            mentioned styles such as <InlineCode>no-mui-thumb-up-filled-icon</InlineCode> or <InlineCode>no-mui-email-sharp-icon</InlineCode>.
           </li>
         </ul>
       </CodeExplanation>

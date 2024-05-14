@@ -41,8 +41,8 @@ export function UsageSection() {
 
       <IconMarquee />
 
-      <pre><code>&gt; npm install no-mui-icons-filled</code></pre>
-      <pre><code>&gt; npm install no-mui-icons-sharp</code></pre>
+      <pre><code>npm install no-mui-icons-filled</code></pre>
+      <pre><code>npm install no-mui-icons-sharp</code></pre>
 
       <CodeTitle>
         React usage
