@@ -1,7 +1,5 @@
 import highlighter from 'highlight.js/lib/core';
 import javascriptHighlights from 'highlight.js/lib/languages/javascript';
-import { ThumbUpFilledIcon } from 'no-mui-icons-filled';
-import { EmailSharpIcon } from 'no-mui-icons-sharp';
 
 highlighter.registerLanguage('javascript', javascriptHighlights);
 

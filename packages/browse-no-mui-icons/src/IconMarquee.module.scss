@@ -6,11 +6,43 @@
   height: 32px;
 
   overflow: hidden;
+
+  &::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 20px;
+    width: 64px;
+    height: 32px;
+    z-index: 1;
+
+    background: linear-gradient(
+      to right,
+      $almost-white-gray-alpha,
+      $almost-white-gray
+    );
+  }
+
+  &::after {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(
+      to right,
+      $almost-white-gray,
+      $almost-white-gray-alpha
+    );
+  }
 }
 
 .iconMarqueeInnerContainer {
   position: absolute;
-  height: 40px;
+  height: 32px;
   overflow: hidden;
   animation: scroll-through-them 12000s linear infinite;
 }

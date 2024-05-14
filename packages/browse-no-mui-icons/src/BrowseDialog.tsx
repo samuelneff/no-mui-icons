@@ -1,5 +1,5 @@
 import { MouseEvent, useCallback, useState } from 'react';
-import { noop, startCase } from 'lodash';
+import { startCase } from 'lodash';
 import { CheckFilledIcon, CloseFilledIcon } from 'no-mui-icons-filled';
 import { wait } from 'utikity';
 

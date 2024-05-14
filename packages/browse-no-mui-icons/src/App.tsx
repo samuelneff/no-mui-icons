@@ -1,4 +1,4 @@
-import { type MouseEvent, useCallback, useState } from 'react';
+import { type MouseEvent, useCallback, useState, useEffect } from 'react';
 import { Theme } from '@radix-ui/themes';
 
 import { BrowseSection } from './BrowseSection';
@@ -39,6 +39,14 @@ function App() {
     (event: MouseEvent<HTMLDivElement>) => {
       const { sectionName } = (event.target as HTMLDivElement).dataset;
       setCurrentSectionName(sectionName as SectionName);
+    },
+    []
+  );
+
+  useEffect(
+    () => {
+      (document.querySelector('#root') as HTMLDivElement).style.visibility = 'visible';
+      document.querySelector('.preloader')?.remove();
     },
     []
   );

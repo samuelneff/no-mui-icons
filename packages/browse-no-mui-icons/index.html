@@ -8,8 +8,71 @@
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Montserrat:wght@100..900&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Browse No-MUI Icons</title>
+    <style>
+      #root {
+        visibility: hidden;
+      }
+
+      .preloader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+
+        font-family: Helvetica, Verdana, sans-serif;
+        font-size: 96px;
+        text-align: center;
+        text-shadow: 1px 1px 8px #dedeff;
+
+        background-image:
+          linear-gradient(
+            to bottom,
+            #265d9c,
+            #def6ff
+            200px
+            ),
+          linear-gradient(
+            to top,
+            #324c1b,
+            #e0f5ca
+            200px);
+
+        background-position:
+          center top,
+          center bottom;
+
+        background-size:
+          100% calc(100% - 200px),
+          100% 400px;
+
+        background-repeat:
+          no-repeat,
+          no-repeat;
+      }
+
+      .preloader-no {
+        position: absolute;
+        top: 185px;
+        left: calc(50% - 255px);
+        color: #324c1b;
+        transform: rotate(-30deg);
+      }
+
+      .preloader-mui-icons {
+        position: absolute;
+        top: 200px;
+        left: 0;
+        right: 0;
+        color: #265d9c;
+      }
+    </style>
   </head>
   <body>
+    <div class="preloader">
+      <div class="preloader-mui-icons">mui-icons</div>
+      <div class="preloader-no">no</div>
+    </div>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
