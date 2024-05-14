@@ -62,3 +62,9 @@
     left: -125400px;
   }
 }
+
+@media (max-width: 680px) {
+  .iconMarqueeOuterContainer {
+    left: 125px;
+  }
+}

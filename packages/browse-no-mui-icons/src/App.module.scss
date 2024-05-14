@@ -175,6 +175,7 @@
     - 60px /* navigation */
     - 41px /* this container margin and border */
   );
+  overflow: hidden;
 
   background: $almost-white-gray;
 
@@ -227,14 +228,49 @@
 
 @media (max-width: 680px) {
   .title {
-    font-size: 64px;
+    font-size: 48px;
+  }
+
+  .titleNo {
+    left: 0;
   }
 
   .subtitle {
     font-size: 12px;
+    margin-top: -5px;
+    padding: 0 0 0 40px;
   }
   .subtitlePartTwo {
     display: block;
     padding-left: 0;
+  }
+
+  .npmLink,
+  .githubLink {
+    top: 20px;
+    padding: 5px;
+
+  }
+
+  .npmLink {
+    right: 44px;
+  }
+
+  .githubLink {
+    right: 10px;
+  }
+
+  .npmIcon,
+  .githubIcon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .navItem {
+    width: 75px;
+  }
+
+  .sectionContainer {
+    padding-bottom: 128px;
   }
 }

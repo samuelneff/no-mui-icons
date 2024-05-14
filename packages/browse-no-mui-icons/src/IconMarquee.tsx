@@ -17,7 +17,10 @@ export function IconMarquee() {
         {
           iconList.current.map(
             Icon => (
-              <Icon className={styles.iconMarqueeIcon} />
+              <Icon
+                key={Icon.name}
+                className={styles.iconMarqueeIcon}
+              />
             )
           )
         }
@@ -27,7 +30,7 @@ export function IconMarquee() {
 }
 
 function randomStartIconList() {
-  const offset = randomBelow(filledIconNames.length);
-  const randomStartList = filledIconNames.slice(offset).concat(filledIconNames.slice(0, offset));
+  const offset = randomBelow(filledIconNames.length - 100);
+  const randomStartList = filledIconNames.slice(offset, offset + 100);
   return randomStartList.map(name => filledIcons[ name as keyof typeof filledIcons ]);
 }

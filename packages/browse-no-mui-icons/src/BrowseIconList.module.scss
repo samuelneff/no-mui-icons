@@ -97,3 +97,30 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+@media (max-width: 680px) {
+  .iconContainer {
+    width: 60px;
+    margin-right: 10px;
+    margin-bottom: 30px;
+    padding: 5px;
+
+    cursor: pointer;
+    text-align: center;
+
+    & > svg {
+      display: block;
+      margin: 0 auto;
+      width: 36px;
+      height: 36px;
+      margin-bottom: 5px;
+    }
+  }
+
+  .iconLabel {
+    height: 1.25em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}

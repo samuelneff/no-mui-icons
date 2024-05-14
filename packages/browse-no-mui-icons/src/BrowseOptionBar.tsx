@@ -42,7 +42,7 @@ export function BrowseOptionBar({
         <div className={styles.control}>
           <TextField.Root
             className={styles.searchInput}
-            placeholder="Search for icons"
+            placeholder="Search"
             radius="large"
             value={searchText}
             onChange={handleSearchTextChange}

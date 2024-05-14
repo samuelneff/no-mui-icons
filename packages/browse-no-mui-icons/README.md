@@ -1,3 +1,6 @@
 # Browse No-MUI Icons
 
-This sample applications shows usage of the No-MUI Icons as well as acts as an icon browser.
+This sample applications shows usage of the No-MUI Icons and is an icon browser.
+
+https://no-mui-icons.com
+

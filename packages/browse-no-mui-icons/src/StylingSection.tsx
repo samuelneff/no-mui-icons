@@ -72,7 +72,7 @@ export function StylingSection() {
   return (
     <div className={styles.stylingSection}>
       <CodeTitle>
-        Custom CSS classes
+        className
       </CodeTitle>
 
       <IconMarquee />
