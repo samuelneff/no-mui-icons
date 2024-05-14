@@ -6,6 +6,18 @@ highlighter.registerLanguage('javascript', javascriptHighlights);
 import styles from './UsageSection.module.scss';
 import { CodeTitle } from './CodeTitle';
 import { IconMarquee } from './IconMarquee';
+import { CodeExplanation } from './CodeExplanation';
+
+
+const installCode = {
+  __html: `
+npm install no-mui-icons-filled
+npm install no-mui-icons-outlined
+npm install no-mui-icons-rounded
+npm install no-mui-icons-sharp
+npm install no-mui-icons-two-tone
+`.trim()
+};
 
 const reactExampleCode = {
   __html: highlighter.highlight(`
@@ -41,8 +53,14 @@ export function UsageSection() {
 
       <IconMarquee />
 
-      <pre><code>npm install no-mui-icons-filled</code></pre>
-      <pre><code>npm install no-mui-icons-sharp</code></pre>
+      <CodeExplanation>
+        The icons are distributed in five packages corresponding to the five icon styles.
+      </CodeExplanation>
+
+      <pre><code
+        className="nohighlight"
+        dangerouslySetInnerHTML={installCode}
+      /></pre>
 
       <CodeTitle>
         React usage
